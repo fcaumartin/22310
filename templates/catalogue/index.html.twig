@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+<div >
+    <h1>Accueil</h1>
+
+    {% for categorie in categories %}
+        <div>
+            <img src="{{categorie.image}}" />
+            {{categorie.nom}}
+        </div>
+    {% endfor %}
+
+</div>
+{% endblock %}
