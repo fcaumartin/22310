@@ -7,17 +7,16 @@
 
 
     <div class="col-12">
-        <h1>Accueil</h1>
+        <h1>{{categorie.nom}}</h1>
     </div>
 
-    {% for categorie in categories %}
+    {% for sc in categorie.sousCategories %}
         <div class="col-12 col-sm-6 col-md-4 col-xl-3 mb-3">
-            {# <a href="/categorie/{{categorie.id}}"> #}
-            <a href="{{ path("app_categorie", { categorie: categorie.id}) }}">
+            <a href="/produits/{{sc.id}}">
                 <div class="card" style="">
-                    <img src="{{categorie.image}}" class="card-img-top" alt="...">
+                    <img src="{{sc.image}}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">{{categorie.nom}}</h5>
+                        <h5 class="card-title">{{sc.nom}}</h5>
                     </div>
                 </div>            
             </a>

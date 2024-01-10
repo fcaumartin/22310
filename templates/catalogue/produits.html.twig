@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+
+
+
+    <div class="col-12">
+        <h1>{{sousCategorie.nom}}</h1>
+    </div>
+
+    {% for prod in sousCategorie.produits %}
+        <div class="col-12 mb-3">
+            <a href="/produit/{{prod.id}}">
+                <div class="card" style="">
+                    {# <img src="{{prod.image}}" class="card-img-top" alt="..."> #}
+                    <div class="card-body">
+                        <h5 class="card-title">{{prod.libelle}}</h5>
+                    </div>
+                </div>            
+            </a>
+        </div>
+    {% endfor %}
+
+
+{% endblock %}
