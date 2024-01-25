@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Produit;
 use App\Form\ContactType;
 use App\Form\ProduitType;
+use App\Repository\ProduitRepository;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -52,6 +53,18 @@ class TestController extends AbstractController
 
         return $this->render('test/contact.html.twig', [
             'form' => $form,
+        ]);
+    }
+
+    #[Route('/test', name: 'test')]
+    public function test(ProduitRepository $repo): Response
+    {
+        $resultat = $repo->findByExampleField("Elec");
+
+        dump($resultat);
+        
+        return $this->render("test/index.html.twig", [
+
         ]);
     }
 }
