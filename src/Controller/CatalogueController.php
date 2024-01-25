@@ -51,4 +51,18 @@ class CatalogueController extends AbstractController
             'produit' => $produit
         ]);
     }
+
+    #[Route('/admin', name: 'app_admin')]
+    public function admin(): Response
+    {
+
+        return new Response("page admin");
+    }
+
+    #[Route('/profile', name: 'app_profile')]
+    public function profile(): Response
+    {
+
+        return new Response("page profile");
+    }
 }

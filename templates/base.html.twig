@@ -19,6 +19,11 @@
             <div class="row">
                 <div class="col-12">
                     <a href="/">Accueil</a>
+                    {% if app.user %}
+                        <a href="/logout">Déconnexion</a>
+                    {% else %}
+                        <a href="/login">Se connecter</a>
+                    {% endif %}
                 </div>
                 {% block body %}{% endblock %}
             </div>
