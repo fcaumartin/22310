@@ -24,6 +24,11 @@
                     {% else %}
                         <a href="/login">Se connecter</a>
                     {% endif %}
+                    <a href="/panier">Panier (
+
+            {{ render(controller('App\\Controller\\CatalogueController::panier', { } )) }}
+
+                    )</a>
                 </div>
                 {% block body %}{% endblock %}
             </div>

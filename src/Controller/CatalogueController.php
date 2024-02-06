@@ -6,8 +6,10 @@ use App\Entity\Categorie;
 use App\Entity\Produit;
 use App\Entity\SousCategorie;
 use App\Repository\CategorieRepository;
+use App\Services\Panier;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class CatalogueController extends AbstractController
@@ -64,5 +66,14 @@ class CatalogueController extends AbstractController
     {
 
         return new Response("page profile");
+    }
+
+    public function panier(Panier $service_panier): Response
+    {
+
+        return $this->render(
+            'catalogue/panier_quantite.html.twig',
+                ['quantite' => $service_panier->quantite()]
+        );
     }
 }
