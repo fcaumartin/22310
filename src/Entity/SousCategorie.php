@@ -2,12 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\SousCategorieRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Metadata\ApiResource;
+use App\Repository\SousCategorieRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 #[ORM\Entity(repositoryClass: SousCategorieRepository::class)]
+#[ApiResource()]
 class SousCategorie
 {
     #[ORM\Id]

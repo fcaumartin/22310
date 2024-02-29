@@ -1,0 +1,59 @@
+GET http://127.0.0.1:8000/api/produits
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/api/produits/10
+Accept: application/json
+
+###
+
+POST http://127.0.0.1:8000/api/produits
+Content-Type: application/json
+
+{
+    "libelle": "test...",
+    "description": "et fort...",
+    "prix": "99.99",
+    "image": "https://picsum.photos/300/200",
+    "sousCategorie": "/api/sous_categories/1"
+}
+
+###
+
+DELETE http://127.0.0.1:8000/api/produits/9
+
+###
+
+PATCH http://127.0.0.1:8000/api/produits/10
+Content-Type: application/merge-patch+json
+Accept: application/json
+
+{
+    "libelle": "modification"
+}
+
+###
+
+
+PUT http://127.0.0.1:8000/api/produits/10
+Content-Type: application/json
+
+{
+    "libelle": "modification3",
+    "description": "et fort...",
+
+    "image": "https://picsum.photos/300/200",
+    "sousCategorie": "/api/sous_categories/1"
+}
+
+
+###
+
+
+GET http://127.0.0.1:8000/api/categories
+
+###
+
+
+http://api.themoviedb.org/3/search/movie?api_key=f33cd318f5135dba306176c13104506a&query=toto
