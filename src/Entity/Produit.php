@@ -4,11 +4,16 @@ namespace App\Entity;
 
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Metadata\ApiFilter;
 use ApiPlatform\Metadata\ApiResource;
 use App\Repository\ProduitRepository;
+use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
 
 #[ORM\Entity(repositoryClass: ProduitRepository::class)]
 #[ApiResource()]
+#[ApiFilter(SearchFilter::class, 
+  properties: [ "sousCategorie.id" => "exact"]  
+)]
 class Produit
 {
     #[ORM\Id]

@@ -15,4 +15,15 @@ class ReactController extends AbstractController
             'controller_name' => 'ReactController',
         ]);
     }
+
+    #[Route('/', name: 'app_react2')]
+    #[Route('/souscategories', name: 'app_react3')]
+    #[Route('/listeproduits', name: 'app_react4')]
+    #[Route('/detailsproduit', name: 'app_react5')]
+    public function index2(): Response
+    {
+        return $this->render('react/index2.html.twig', [
+            'controller_name' => 'ReactController',
+        ]);
+    }
 }
