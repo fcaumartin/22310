@@ -16,10 +16,12 @@ class ReactController extends AbstractController
         ]);
     }
 
-    #[Route('/', name: 'app_react2')]
-    #[Route('/souscategories', name: 'app_react3')]
-    #[Route('/listeproduits', name: 'app_react4')]
-    #[Route('/detailsproduit', name: 'app_react5')]
+    #[Route(
+        '/{react_route}', 
+        name: 'app_react2', 
+        requirements: ["react_route"=>"^.+"], 
+        defaults: ["react_route"=> null]
+    )]
     public function index2(): Response
     {
         return $this->render('react/index2.html.twig', [
