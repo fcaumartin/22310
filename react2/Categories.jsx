@@ -20,21 +20,26 @@ function Categories() {
   }, [])
 
   const handleClick = (cat) => {
-    console.log(cat)
 
     navigate("/souscategories/" + cat.id, { replace: true });
   }
   
-  
   return (
     <>
 
-      <div>
-        Categories
+      <div className='row'>
+        
         {
           liste.map((cat, index) => (
-            <div key={index} onClick={() => { handleClick(cat)}}>
-              {cat.nom}
+            <div key={index} onClick={() => { handleClick(cat)}} className="clickable col-12 col-sm-6 col-md-4 col-xl-3 mb-3">
+              
+                <div className="card">
+                    <img src={cat.image} className="card-img-top" alt="..." />
+                    <div className="card-body">
+                        <h5 className="card-title">{cat.nom}</h5>
+                    </div>
+                </div>            
+              
             </div>
           ))
         }

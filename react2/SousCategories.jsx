@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import axios from 'axios';
 
@@ -8,10 +8,16 @@ function SousCategories() {
 
   const [liste, setListe] = useState([])
 
+  const navigate = useNavigate();
+
   const { id } = useParams();
 
+  const handleClick = (cat) => {
+
+    navigate("/listeproduits/" + cat.id, { replace: true });
+  }
+
   useEffect(()=>{
-    console.log("souscategorie.id=" + id)
     axios("https://127.0.0.1:8000/api/sous_categories?categorie.id=" + id,{
       headers: {
         Accept: "application/json"
@@ -25,12 +31,19 @@ function SousCategories() {
   return (
     <>
 
-      <div>
-        SousCategories
+      <div className='row'>
+        
         {
           liste.map((scat, index) => (
-            <div key={index} onClick={() => { }}>
-              {scat.nom}
+            <div key={index} onClick={() => { handleClick(scat)}} className="clickable col-12 col-sm-6 col-md-4 col-xl-3 mb-3">
+              
+                <div className="card">
+                    <img src={scat.image} className="card-img-top" alt="..." />
+                    <div className="card-body">
+                        <h5 className="card-title">{scat.nom}</h5>
+                    </div>
+                </div>            
+              
             </div>
           ))
         }

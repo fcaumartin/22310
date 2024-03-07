@@ -10,14 +10,14 @@ function App() {
   return (
     <>
 
-      <div>
+      <h1>
         Catalogue
-      </div>
+      </h1>
       <Routes>
         <Route path="categories" element={<Categories />} />
         <Route path="souscategories/:id" element={<SousCategories />} />
-        <Route path="listeproduits" element={<ListeProduits />} />
-        <Route path="detailsproduit" element={<DetailsProduit />} />
+        <Route path="listeproduits/:id" element={<ListeProduits />} />
+        <Route path="detailsproduit/:id" element={<DetailsProduit />} />
       </Routes>
     </>
     );
